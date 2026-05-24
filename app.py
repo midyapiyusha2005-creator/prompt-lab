@@ -512,6 +512,55 @@ hr {
     border-top: 1px solid #e2e8f2;
 }
 
+            /* ===== DARK MODE FIX ===== */
+[data-testid="stTextArea"] textarea {
+    color: #1a1a2e !important;
+    background: #ffffff !important;
+}
+
+[data-testid="stTextArea"] textarea::placeholder {
+    color: #6b7fa3 !important;
+}
+
+[data-baseweb="select"] * {
+    color: #1a1a2e !important;
+}
+
+[data-testid="stSelectbox"] * {
+    color: #1a1a2e !important;
+}
+
+[data-testid="stAlert"] {
+    color: #1a1a2e !important;
+}
+
+[data-testid="stAlert"] p {
+    color: #1a1a2e !important;
+}
+
+.stWarning, .stSuccess, .stError, .stInfo {
+    color: #1a1a2e !important;
+}
+
+[data-testid="stMarkdownContainer"] p {
+    color: #1a1a2e !important;
+}
+
+.check-item span {
+    color: #2d3a52 !important;
+}
+
+.problem-box {
+    color: #2d3a52 !important;
+}
+
+.task-box {
+    color: #1a3a6b !important;
+}
+
+
+
+
 </style>
 """, unsafe_allow_html=True)
 

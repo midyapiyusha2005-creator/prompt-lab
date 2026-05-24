@@ -320,6 +320,7 @@ textarea {
     line-height: 1.7 !important;
     box-shadow: 0 2px 8px rgba(11,61,145,0.04) !important;
     padding: 16px !important;
+    color: #1a1a2e !important;
 }
 
 textarea:focus {

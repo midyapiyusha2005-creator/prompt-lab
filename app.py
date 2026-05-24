@@ -315,7 +315,7 @@ textarea {
     border-radius: 14px !important;
     font-size: 14.5px !important;
     border: 1.5px solid #c7d9f8 !important;
-    background: #ffffff !important;
+   background: #f7f9ff !important;
     font-family: 'Inter', sans-serif !important;
     line-height: 1.7 !important;
     box-shadow: 0 2px 8px rgba(11,61,145,0.04) !important;

@@ -1,19 +1,19 @@
 import streamlit as st
 
-# ---------------- PAGE CONFIG ---------------- #
+# ----- PAGE CONFIG --- #
 st.set_page_config(
     page_title="Learning and Devlopment",
     page_icon="📘",
     layout="wide"
 )
 
-# ---------------- CUSTOM CSS ---------------- #
+# ---- CUSTOM CSS --- #
 st.markdown("""
 <style>
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=DM+Serif+Display&display=swap');
 
-/* ===== GLOBAL BACKGROUND ===== */
+/* == GLOBAL BACKGROUND == */
 .stApp {
     background: #f0f4fa;
     color: #1a1a2e;
@@ -31,12 +31,12 @@ st.markdown("""
 }
 
 
-/* ===== SIDEBAR STYLE ===== */
+/*             SIDEBAR STYLE    */
 section[data-testid="stSidebar"] {
     background: #0B3D91;
 }
 
-/* ===== MAIN TITLE ===== */
+/*    MAIN TITLE           */
 .main-header {
     background: linear-gradient(135deg, #0B3D91 0%, #1565C0 60%, #1976D2 100%);
     border-radius: 20px;
@@ -95,7 +95,7 @@ section[data-testid="stSidebar"] {
     margin: 0;
 }
 
-/* ===== FRAMEWORK STRIP ===== */
+/*                 FRAMEWORK STRIP          */
 .framework-strip {
     background: #ffffff;
     border-radius: 16px;
@@ -163,7 +163,7 @@ section[data-testid="stSidebar"] {
     margin-top: 2px;
 }
 
-/* ===== SECTION HEADER ===== */
+/*                SECTION HEADER          */
 .section-header {
     display: flex;
     align-items: center;
@@ -188,7 +188,7 @@ section[data-testid="stSidebar"] {
     letter-spacing: -0.2px;
 }
 
-/* ===== PROBLEM BOX ===== */
+/*         PROBLEM BOX  */
 .problem-box {
     background: #ffffff;
     border-radius: 14px;
@@ -202,7 +202,7 @@ section[data-testid="stSidebar"] {
     margin-bottom: 10px;
 }
 
-/* ===== TABLE OVERRIDE ===== */
+/*  TABLE OVERRIDE  */
 [data-testid="stTable"] {
     border-radius: 14px;
     overflow: hidden;
@@ -245,7 +245,7 @@ section[data-testid="stSidebar"] {
             
             
 
-/* ===== CHECKLIST ITEMS ===== */
+/*  CHECKLIST ITEMS  */
 .check-item {
     display: flex;
     align-items: flex-start;
@@ -297,7 +297,7 @@ section[data-testid="stSidebar"] {
     margin-bottom: 10px;
 }
 
-/* ===== LEARNER TASK BOX ===== */
+/*      LEARNER TASK BOX      */
 .task-box {
     background: linear-gradient(135deg, #f0f5ff, #e8f0fe);
     border-radius: 14px;
@@ -310,7 +310,7 @@ section[data-testid="stSidebar"] {
     margin-bottom: 10px;
 }
 
-/* ===== SELECT BOX ===== */
+/*   SELECT BOX  */
 [data-testid="stSelectbox"] > div > div {
     border-radius: 12px !important;
     border: 1.5px solid #c7d9f8 !important;
@@ -333,7 +333,7 @@ section[data-testid="stSidebar"] {
     color: #1a1a2e !important;
 }
 
-/* ===== TEXT AREA ===== */
+/*          TEXT AREA     */
 textarea {
     border-radius: 14px !important;
     font-size: 14.5px !important;
@@ -361,7 +361,7 @@ textarea:focus {
 }
             
 
-/* ===== BUTTON ===== */
+/*  BUTTON */
 .stButton > button {
     background: linear-gradient(135deg, #0B3D91, #1565C0);
     color: white;
@@ -385,7 +385,7 @@ textarea:focus {
     transform: translateY(0px);
 }
 
-/* ===== METRICS ===== */
+/*                       METRICS                 */
 [data-testid="metric-container"] {
     background: #ffffff;
     border-radius: 14px;
@@ -409,7 +409,7 @@ textarea:focus {
     color: #0B3D91 !important;
 }
 
-/* ===== PROGRESS BAR ===== */
+/*  PROGRESS BAR  */
 [data-testid="stProgress"] > div > div > div {
     background: linear-gradient(90deg, #0B3D91, #1976D2) !important;
     border-radius: 10px !important;
@@ -421,7 +421,7 @@ textarea:focus {
     height: 10px !important;
 }
 
-/* ===== SCORE RING ===== */
+/*  SCORE RING  */
 .score-ring-wrap {
     display: flex;
     align-items: center;
@@ -456,7 +456,7 @@ textarea:focus {
     margin-top: 4px;
 }
 
-/* ===== EVAL BOX ===== */
+/*  EVAL BOX  */
 .eval-section {
     background: #ffffff;
     border-radius: 16px;
@@ -476,27 +476,27 @@ textarea:focus {
     border-bottom: 1.5px solid #e8f0fe;
 }
 
-/* ===== CODE BLOCK ===== */
+/*                 CODE BLOCK  */
 [data-testid="stCode"] {
     border-radius: 14px !important;
     border: 1px solid #c7d9f8 !important;
     background: #f7f9ff !important;
 }
 
-/* ===== ALERTS / STATUS ===== */
+/*               ALERTS / STATUS   */
 [data-testid="stAlert"] {
     border-radius: 12px !important;
     font-size: 14px !important;
 }
 
-/* ===== DIVIDER ===== */
+/*                  DIVIDER         */
 hr {
     border: none !important;
     border-top: 1.5px solid #e8f0fe !important;
     margin: 28px 0 !important;
 }
 
-/* ===== SCENARIO SELECTOR LABEL ===== */
+/*            SCENARIO SELECTOR LABEL */
 .select-label {
     font-size: 13px;
     font-weight: 600;
@@ -506,7 +506,7 @@ hr {
     margin-bottom: 8px;
 }
 
-/* ===== FOOTER ===== */
+/*             FOOTER               */
 .footer {
     text-align: center;
     color: #9baac0;
@@ -518,7 +518,7 @@ hr {
     border-top: 1px solid #e2e8f2;
 }
 
-            /* ===== DARK MODE FIX ===== */
+            /*           DARK MODE FIX        */
 [data-testid="stTextArea"] textarea {
     color: #1a1a2e !important;
     background: #ffffff !important;
@@ -651,12 +651,12 @@ scenarios = {
         "Actionable insights"
     ],
     "scorecard": {
-        "Role Definition": 2,
-        "Data Utilization": 2,
-        "Task Clarity": 2,
-        "Constraints Usage": 2,
-        "Output Structure": 1,
-        "Business Alignment": 1
+        "Role Definition": 20,
+        "Data Utilization": 20,
+        "Task Clarity": 20,
+        "Constraints Usage": 20,
+        "Output Structure": 10,
+        "Business Alignment": 10
     }
 },
 
@@ -689,12 +689,12 @@ scenarios = {
         "Practical approach"
     ],
     "scorecard": {
-        "Role Definition": 2,
-        "Data Usage": 2,
-        "Analytical Thinking": 2,
-        "Constraints Usage": 2,
-        "Output Clarity": 1,
-        "Business Relevance": 1
+        "Role Definition": 20,
+        "Data Usage": 20,
+        "Analytical Thinking": 20,
+        "Constraints Usage": 20,
+        "Output Clarity": 10,
+        "Business Relevance": 10
     }
 },
 
@@ -726,12 +726,12 @@ scenarios = {
         "Operational relevance"
     ],
     "scorecard": {
-        "Role Definition": 2,
-        "Data Understanding": 2,
-        "Task Clarity": 2,
-        "Constraints Usage": 2,
-        "Output Structure": 1,
-        "Business Alignment": 1
+        "Role Definition": 20,
+        "Data Understanding": 20,
+        "Task Clarity": 20,
+        "Constraints Usage": 20,
+        "Output Structure": 10,
+        "Business Alignment": 10
     }
 },
 
@@ -763,12 +763,12 @@ scenarios = {
         "Clear structure"
     ],
     "scorecard": {
-        "Role Definition": 2,
-        "Data Usage": 2,
-        "Task Clarity": 2,
-        "Constraints Usage": 2,
-        "Output Format": 1,
-        "Business Relevance": 1
+        "Role Definition": 20,
+        "Data Usage": 20,
+        "Task Clarity": 20,
+        "Constraints Usage": 20,
+        "Output Format": 10,
+        "Business Relevance": 10
     }
 },
 
@@ -800,12 +800,12 @@ scenarios = {
         "Business relevance"
     ],
     "scorecard": {
-        "Role Definition": 2,
-        "Data Usage": 2,
-        "Task Clarity": 2,
-        "Constraints Usage": 2,
-        "Output Format": 1,
-        "Business Relevance": 1
+        "Role Definition": 20,
+        "Data Usage": 20,
+        "Task Clarity": 20,
+        "Constraints Usage": 20,
+        "Output Format": 10,
+        "Business Relevance": 10
     }
 },
 
@@ -837,12 +837,12 @@ scenarios = {
         "Scalable thinking"
     ],
     "scorecard": {
-        "Role Definition": 2,
-        "Data Usage": 2,
-        "Task Clarity": 2,
-        "Constraints Usage": 2,
-        "Output Format": 1,
-        "Business Relevance": 1
+        "Role Definition": 20,
+        "Data Usage": 20,
+        "Task Clarity": 20,
+        "Constraints Usage": 20,
+        "Output Format": 10,
+        "Business Relevance": 10
     }
 },
 
@@ -874,12 +874,12 @@ scenarios = {
         "Structured output"
     ],
     "scorecard": {
-        "Role Definition": 2,
-        "Data Usage": 2,
-        "Task Clarity": 2,
-        "Constraints Usage": 2,
-        "Output Format": 1,
-        "Business Relevance": 1
+        "Role Definition": 20,
+        "Data Usage": 20,
+        "Task Clarity": 20,
+        "Constraints Usage": 20,
+        "Output Format": 10,
+        "Business Relevance": 10
     }
 },
 
@@ -911,12 +911,12 @@ scenarios = {
         "Structured thinking"
     ],
     "scorecard": {
-        "Role Definition": 2,
-        "Data Usage": 2,
-        "Task Clarity": 2,
-        "Constraints Usage": 2,
-        "Output Format": 1,
-        "Business Relevance": 1
+        "Role Definition": 20,
+        "Data Usage": 20,
+        "Task Clarity": 20,
+        "Constraints Usage": 20,
+        "Output Format": 10,
+        "Business Relevance": 10
     }
 },
 
@@ -948,12 +948,12 @@ scenarios = {
         "Clear structure"
     ],
     "scorecard": {
-        "Role Definition": 2,
-        "Data Usage": 2,
-        "Task Clarity": 2,
-        "Constraints Usage": 2,
-        "Output Format": 1,
-        "Business Relevance": 1
+        "Role Definition": 20,
+        "Data Usage": 20,
+        "Task Clarity": 20,
+        "Constraints Usage": 20,
+        "Output Format": 10,
+        "Business Relevance": 10
     }
 },
 
@@ -985,19 +985,19 @@ scenarios = {
         "Structured reasoning"
     ],
     "scorecard": {
-        "Role Definition": 2,
-        "Data Usage": 2,
-        "Task Clarity": 2,
-        "Constraints Usage": 2,
-        "Output Format": 1,
-        "Business Relevance": 1
+        "Role Definition": 20,
+        "Data Usage": 20,
+        "Task Clarity": 20,
+        "Constraints Usage": 20,
+        "Output Format": 10,
+        "Business Relevance": 10
     }
 }
 
 }
 
 
-# ---------------- SELECT SCENARIO ---------------- #
+# --- SELECT SCENARIO ---#
 st.markdown('<div class="select-label">Choose Business Scenario</div>', unsafe_allow_html=True)
 selected_scenario = st.selectbox(
     "",
@@ -1009,7 +1009,7 @@ scenario = scenarios[selected_scenario]
 
 st.markdown("<br>", unsafe_allow_html=True)
 
-# ---------------- BUSINESS INSIGHT ---------------- #
+# -------- BUSINESS INSIGHT ------- #
 st.markdown("""
 <div class="section-header">
     <span class="section-badge">01</span>
@@ -1019,7 +1019,7 @@ st.markdown("""
 
 st.markdown(f'<div class="problem-box">{scenario["problem"]}</div>', unsafe_allow_html=True)
 
-# ---------------- RAW DATA ---------------- #
+# ------ RAW DATA ----- #
 st.markdown("""
 <div class="section-header">
     <span class="section-badge">02</span>
@@ -1032,7 +1032,7 @@ st.table({
     "Details": list(scenario["data"].values())
 })
 
-# ---------------- OBJECTIVE ---------------- #
+# ---- OBJECTIVE ----- #
 st.markdown("""
 <div class="section-header">
     <span class="section-badge">03</span>
@@ -1046,7 +1046,7 @@ items_html = "".join([
 ])
 st.markdown(f'<div class="checklist-card">{items_html}</div>', unsafe_allow_html=True)
 
-# ---------------- CONSTRAINTS ---------------- #
+# ----- CONSTRAINTS ----- #
 st.markdown("""
 <div class="section-header">
     <span class="section-badge">04</span>
@@ -1060,7 +1060,7 @@ items_html = "".join([
 ])
 st.markdown(f'<div class="checklist-card">{items_html}</div>', unsafe_allow_html=True)
 
-# ---------------- LEARNER TASK ---------------- #
+# ------ LEARNER TASK ----- #
 st.markdown("""
 <div class="section-header">
     <span class="section-badge">05</span>
@@ -1070,7 +1070,7 @@ st.markdown("""
 
 st.markdown(f'<div class="task-box">{scenario["learner_task"]}</div>', unsafe_allow_html=True)
 
-# ---------------- WHAT GOOD LOOKS LIKE ---------------- #
+# ---- WHAT GOOD LOOKS LIKE ------- #
 st.markdown("""
 <div class="section-header">
     <span class="section-badge">06</span>
@@ -1084,7 +1084,7 @@ items_html = "".join([
 ])
 st.markdown(f'<div class="checklist-card">{items_html}</div>', unsafe_allow_html=True)
 
-# ---------------- EVALUATION SCORECARD ---------------- #
+# ----- EVALUATION SCORECARD --------- #
 st.markdown("""
 <div class="section-header">
     <span class="section-badge">07</span>
@@ -1126,7 +1126,7 @@ Format:
 ..."""
 )
 
-# ---------------- PROMPT EVALUATION FUNCTION ---------------- #
+# --------- PROMPT EVALUATION FUNCTION --------- #
 
 def evaluate_prompt(prompt):
 
@@ -1187,7 +1187,7 @@ def evaluate_prompt(prompt):
         "feedback": feedback
     }
 
-# ---------------- SUBMIT BUTTON ---------------- #
+# ------- SUBMIT BUTTON ---- #
 st.markdown("<br>", unsafe_allow_html=True)
 
 if st.button("⟶  Evaluate Prompt", use_container_width=True):
@@ -1201,7 +1201,7 @@ if st.button("⟶  Evaluate Prompt", use_container_width=True):
 
         st.divider()
 
-        # ---------------- SCORE DASHBOARD ---------------- #
+        # --------- SCORE DASHBOARD ----- #
         st.markdown("""
         <div class="section-header">
             <span class="section-badge" style="background:#1565C0;">◈</span>
@@ -1247,7 +1247,7 @@ if st.button("⟶  Evaluate Prompt", use_container_width=True):
             </div>
             """, unsafe_allow_html=True)
 
-        # ---------------- COMPONENT BREAKDOWN ---------------- #
+        # ------- COMPONENT BREAKDOWN ------- #
         st.markdown("""
         <div class="section-header" style="margin-top:24px;">
             <span class="section-badge" style="background:#1565C0;">◈</span>
@@ -1267,7 +1267,7 @@ if st.button("⟶  Evaluate Prompt", use_container_width=True):
         with col5:
             st.metric("Format", result["format"])
 
-        # ---------------- BUSINESS READINESS ---------------- #
+        # ---BUSINESS READINESS ---- #
         st.markdown("""
         <div class="section-header" style="margin-top:24px;">
             <span class="section-badge" style="background:#1565C0;">◈</span>
@@ -1292,7 +1292,7 @@ if st.button("⟶  Evaluate Prompt", use_container_width=True):
             else:
                 st.error("Structured Output")
 
-        # ---------------- EVALUATION FEEDBACK ---------------- #
+        # ---- EVALUATION FEEDBACK --- #
         st.markdown("""
         <div class="section-header" style="margin-top:24px;">
             <span class="section-badge" style="background:#1565C0;">◈</span>
@@ -1343,7 +1343,7 @@ if st.button("⟶  Evaluate Prompt", use_container_width=True):
             else:
                 st.success("No major improvement areas identified.")
 
-        # ---------------- PROMPT CLASSIFICATION ---------------- #
+        # --- PROMPT CLASSIFICATION -------- #
         st.markdown("""
         <div class="section-header" style="margin-top:24px;">
             <span class="section-badge" style="background:#1565C0;">◈</span>
@@ -1360,7 +1360,7 @@ if st.button("⟶  Evaluate Prompt", use_container_width=True):
         else:
             st.error("Foundational Prompt Structure")
 
-        # ---------------- PERFORMANCE MESSAGE ---------------- #
+        # ------- PERFORMANCE MESSAGE ------- #
         st.markdown("""
         <div class="section-header" style="margin-top:24px;">
             <span class="section-badge" style="background:#1565C0;">◈</span>
@@ -1375,7 +1375,7 @@ if st.button("⟶  Evaluate Prompt", use_container_width=True):
         else:
             st.error("The prompt requires improvement in structure, clarity, and business direction.")
 
-        # ---------------- RCA GAP ANALYSIS ---------------- #
+        # ------ RCA GAP ANALYSIS ---- #
         st.divider()
         st.markdown("""
         <div class="section-header">
@@ -1406,7 +1406,7 @@ if st.button("⟶  Evaluate Prompt", use_container_width=True):
                 "Improvement": [row[3] for row in rca_table]
             })
 
-        # ---------------- EXPERT PROMPT ---------------- #
+        # --- EXPERT PROMPT --- #
         st.divider()
         st.markdown("""
         <div class="section-header">
@@ -1603,7 +1603,7 @@ Productivity Factor | Gap Observed | Root Cause | Recommended Action | Priority"
 
         st.info("Structured prompts create structured business outcomes.")
 
-# ---------------- FOOTER ---------------- #
+# ---- FOOTER -----  #
 st.markdown("""
 <div class="footer">
     Digital Capability — Data & AI

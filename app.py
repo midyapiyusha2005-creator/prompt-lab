@@ -238,6 +238,10 @@ section[data-testid="stSidebar"] {
 [data-testid="stTable"] tbody tr:last-child td {
     border-bottom: none !important;
 }
+            
+            [data-testid="stTable"] thead tr th:last-child {
+    text-align: right !important;
+}
 
 /* ===== CHECKLIST ITEMS ===== */
 .check-item {

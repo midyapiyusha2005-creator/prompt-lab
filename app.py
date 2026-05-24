@@ -242,6 +242,8 @@ section[data-testid="stSidebar"] {
             [data-testid="stTable"] thead tr th:last-child {
     text-align: right !important;
 }
+            
+            
 
 /* ===== CHECKLIST ITEMS ===== */
 .check-item {

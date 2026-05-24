@@ -22,6 +22,15 @@ st.markdown("""
     padding-top: 1rem !important;
 }
 
+            header[data-testid="stHeader"] {
+    display: none !important;
+}
+
+.block-container {
+    padding-top: 1rem !important;
+}
+
+
 /* ===== SIDEBAR STYLE ===== */
 section[data-testid="stSidebar"] {
     background: #0B3D91;
@@ -309,6 +318,14 @@ section[data-testid="stSidebar"] {
     border-color: #0B3D91 !important;
     box-shadow: 0 0 0 3px rgba(11,61,145,0.12) !important;
 }
+            
+            [data-testid="stSelectbox"] span,
+[data-testid="stSelectbox"] div,
+[data-testid="stSelectbox"] p,
+[data-baseweb="select"] span,
+[data-baseweb="select"] div {
+    color: #1a1a2e !important;
+}
 
 /* ===== TEXT AREA ===== */
 textarea {
@@ -327,6 +344,16 @@ textarea:focus {
     border-color: #0B3D91 !important;
     box-shadow: 0 0 0 3px rgba(11,61,145,0.1) !important;
 }
+
+            [data-baseweb="textarea"] textarea {
+    color: #1a1a2e !important;
+    background: #ffffff !important;
+}
+
+[data-baseweb="base-input"] {
+    background: #ffffff !important;
+}
+            
 
 /* ===== BUTTON ===== */
 .stButton > button {

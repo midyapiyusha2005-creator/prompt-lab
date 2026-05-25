@@ -1,4 +1,19 @@
 import streamlit as st
+import os
+from dotenv import load_dotenv
+from groq import Groq
+import json
+import re
+
+load_dotenv()
+
+api_key = os.getenv("GROQ_API_KEY")
+
+if not api_key:
+    st.error("GROQ_API_KEY is missing in .env file")
+    st.stop()
+
+client = Groq(api_key=api_key)
 
 # ----- PAGE CONFIG --- #
 st.set_page_config(
@@ -13,30 +28,24 @@ st.markdown("""
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=DM+Serif+Display&display=swap');
 
-/* == GLOBAL BACKGROUND == */
 .stApp {
     background: #f0f4fa;
     color: #1a1a2e;
     font-family: 'Inter', sans-serif;
-           .block-container {
-    padding-top: 1rem !important;
-}
-
-            header[data-testid="stHeader"] {
-    display: none !important;
 }
 
 .block-container {
     padding-top: 1rem !important;
 }
 
+header[data-testid="stHeader"] {
+    display: none !important;
+}
 
-/*             SIDEBAR STYLE    */
 section[data-testid="stSidebar"] {
     background: #0B3D91;
 }
 
-/*    MAIN TITLE           */
 .main-header {
     background: linear-gradient(135deg, #0B3D91 0%, #1565C0 60%, #1976D2 100%);
     border-radius: 20px;
@@ -95,7 +104,6 @@ section[data-testid="stSidebar"] {
     margin: 0;
 }
 
-/*                 FRAMEWORK STRIP          */
 .framework-strip {
     background: #ffffff;
     border-radius: 16px;
@@ -163,7 +171,6 @@ section[data-testid="stSidebar"] {
     margin-top: 2px;
 }
 
-/*                SECTION HEADER          */
 .section-header {
     display: flex;
     align-items: center;
@@ -188,7 +195,6 @@ section[data-testid="stSidebar"] {
     letter-spacing: -0.2px;
 }
 
-/*         PROBLEM BOX  */
 .problem-box {
     background: #ffffff;
     border-radius: 14px;
@@ -202,7 +208,6 @@ section[data-testid="stSidebar"] {
     margin-bottom: 10px;
 }
 
-/*  TABLE OVERRIDE  */
 [data-testid="stTable"] {
     border-radius: 14px;
     overflow: hidden;
@@ -238,14 +243,11 @@ section[data-testid="stSidebar"] {
 [data-testid="stTable"] tbody tr:last-child td {
     border-bottom: none !important;
 }
-            
-            [data-testid="stTable"] thead tr th:last-child {
+
+[data-testid="stTable"] thead tr th:last-child {
     text-align: right !important;
 }
-            
-            
 
-/*  CHECKLIST ITEMS  */
 .check-item {
     display: flex;
     align-items: flex-start;
@@ -297,7 +299,6 @@ section[data-testid="stSidebar"] {
     margin-bottom: 10px;
 }
 
-/*      LEARNER TASK BOX      */
 .task-box {
     background: linear-gradient(135deg, #f0f5ff, #e8f0fe);
     border-radius: 14px;
@@ -310,7 +311,6 @@ section[data-testid="stSidebar"] {
     margin-bottom: 10px;
 }
 
-/*   SELECT BOX  */
 [data-testid="stSelectbox"] > div > div {
     border-radius: 12px !important;
     border: 1.5px solid #c7d9f8 !important;
@@ -324,8 +324,8 @@ section[data-testid="stSidebar"] {
     border-color: #0B3D91 !important;
     box-shadow: 0 0 0 3px rgba(11,61,145,0.12) !important;
 }
-            
-            [data-testid="stSelectbox"] span,
+
+[data-testid="stSelectbox"] span,
 [data-testid="stSelectbox"] div,
 [data-testid="stSelectbox"] p,
 [data-baseweb="select"] span,
@@ -333,12 +333,11 @@ section[data-testid="stSidebar"] {
     color: #1a1a2e !important;
 }
 
-/*          TEXT AREA     */
 textarea {
     border-radius: 14px !important;
     font-size: 14.5px !important;
     border: 1.5px solid #c7d9f8 !important;
-   background: #f7f9ff !important;
+    background: #f7f9ff !important;
     font-family: 'Inter', sans-serif !important;
     line-height: 1.7 !important;
     box-shadow: 0 2px 8px rgba(11,61,145,0.04) !important;
@@ -351,7 +350,7 @@ textarea:focus {
     box-shadow: 0 0 0 3px rgba(11,61,145,0.1) !important;
 }
 
-            [data-baseweb="textarea"] textarea {
+[data-baseweb="textarea"] textarea {
     color: #1a1a2e !important;
     background: #ffffff !important;
 }
@@ -359,9 +358,7 @@ textarea:focus {
 [data-baseweb="base-input"] {
     background: #ffffff !important;
 }
-            
 
-/*  BUTTON */
 .stButton > button {
     background: linear-gradient(135deg, #0B3D91, #1565C0);
     color: white;
@@ -385,7 +382,6 @@ textarea:focus {
     transform: translateY(0px);
 }
 
-/*                       METRICS                 */
 [data-testid="metric-container"] {
     background: #ffffff;
     border-radius: 14px;
@@ -409,7 +405,6 @@ textarea:focus {
     color: #0B3D91 !important;
 }
 
-/*  PROGRESS BAR  */
 [data-testid="stProgress"] > div > div > div {
     background: linear-gradient(90deg, #0B3D91, #1976D2) !important;
     border-radius: 10px !important;
@@ -421,7 +416,6 @@ textarea:focus {
     height: 10px !important;
 }
 
-/*  SCORE RING  */
 .score-ring-wrap {
     display: flex;
     align-items: center;
@@ -456,7 +450,6 @@ textarea:focus {
     margin-top: 4px;
 }
 
-/*  EVAL BOX  */
 .eval-section {
     background: #ffffff;
     border-radius: 16px;
@@ -476,27 +469,23 @@ textarea:focus {
     border-bottom: 1.5px solid #e8f0fe;
 }
 
-/*                 CODE BLOCK  */
 [data-testid="stCode"] {
     border-radius: 14px !important;
     border: 1px solid #c7d9f8 !important;
     background: #f7f9ff !important;
 }
 
-/*               ALERTS / STATUS   */
 [data-testid="stAlert"] {
     border-radius: 12px !important;
     font-size: 14px !important;
 }
 
-/*                  DIVIDER         */
 hr {
     border: none !important;
     border-top: 1.5px solid #e8f0fe !important;
     margin: 28px 0 !important;
 }
 
-/*            SCENARIO SELECTOR LABEL */
 .select-label {
     font-size: 13px;
     font-weight: 600;
@@ -506,7 +495,6 @@ hr {
     margin-bottom: 8px;
 }
 
-/*             FOOTER               */
 .footer {
     text-align: center;
     color: #9baac0;
@@ -518,7 +506,6 @@ hr {
     border-top: 1px solid #e2e8f2;
 }
 
-            /*           DARK MODE FIX        */
 [data-testid="stTextArea"] textarea {
     color: #1a1a2e !important;
     background: #ffffff !important;
@@ -564,9 +551,6 @@ hr {
     color: #1a3a6b !important;
 }
 
-
-
-
 </style>
 """, unsafe_allow_html=True)
 
@@ -575,8 +559,8 @@ hr {
 st.markdown("""
 <div class="main-header">
     <h1 class="main-title">Learning & Development</h1>
-<p class="main-subtitle">Business Prompting Simulation Environment</p>
-<p class="main-caption" style="margin-top:8px;">Scenario-Based Prompt Engineering Capability Assessment</p>
+    <p class="main-subtitle">Business Prompting Simulation Environment</p>
+    <p class="main-caption" style="margin-top:8px;">Scenario-Based Prompt Engineering Capability Assessment</p>
 </div>
 """, unsafe_allow_html=True)
 
@@ -1126,66 +1110,45 @@ Format:
 ..."""
 )
 
-# --------- PROMPT EVALUATION FUNCTION --------- #
 
-def evaluate_prompt(prompt):
+# --------- GROQ AI EVALUATION FUNCTION --------- #
 
-    score = 0
-    role_score = 0
-    context_score = 0
-    task_score = 0
-    constraint_score = 0
-    format_score = 0
-    feedback = []
-    lower_prompt = prompt.lower()
+def evaluate_with_genai(prompt, scenario_name, scenario):
+    system_prompt = """
+You are an expert prompt evaluator.
+Score using RCTCF: Role, Context, Task, Constraints, Format.
+Each component is scored out of 20. Total is out of 100.
 
-    role_keywords = ["act as", "consultant", "expert", "specialist"]
-    if any(word in lower_prompt for word in role_keywords):
-        role_score = 20
-    else:
-        feedback.append("Role definition is unclear or missing.")
+Return ONLY valid JSON with no markdown, no backticks, no explanation:
+{
+  "total": number,
+  "role": number,
+  "context": number,
+  "task": number,
+  "constraints": number,
+  "format": number,
+  "feedback": ["short feedback points"]
+}
+"""
+    user_message = f"""
+Scenario: {scenario_name}
 
-    if len(prompt) > 150:
-        context_score = 20
-    elif len(prompt) > 80:
-        context_score = 12
-        feedback.append("Business context can be more detailed.")
-    else:
-        feedback.append("Business context is too limited.")
+Scenario Data:
+{scenario}
 
-    task_keywords = ["analyze", "identify", "recommend", "evaluate", "suggest"]
-    task_count = sum(word in lower_prompt for word in task_keywords)
-    if task_count >= 3:
-        task_score = 20
-    elif task_count >= 1:
-        task_score = 12
-        feedback.append("Task instructions can be more actionable.")
-    else:
-        feedback.append("Task definition is unclear.")
+User Prompt:
+{prompt}
+"""
+    response = client.chat.completions.create(
+        model="llama-3.3-70b-versatile",
+        messages=[
+            {"role": "system", "content": system_prompt},
+            {"role": "user", "content": user_message}
+        ],
+        temperature=0.2
+    )
+    return response.choices[0].message.content
 
-    constraint_keywords = ["practical", "cost", "limit", "minimum", "focus"]
-    if any(word in lower_prompt for word in constraint_keywords):
-        constraint_score = 20
-    else:
-        feedback.append("Operational constraints are missing.")
-
-    format_keywords = ["table", "format", "output", "columns", "structure"]
-    if any(word in lower_prompt for word in format_keywords):
-        format_score = 20
-    else:
-        feedback.append("Output structure is not defined.")
-
-    score = role_score + context_score + task_score + constraint_score + format_score
-
-    return {
-        "total": score,
-        "role": role_score,
-        "context": context_score,
-        "task": task_score,
-        "constraints": constraint_score,
-        "format": format_score,
-        "feedback": feedback
-    }
 
 # ------- SUBMIT BUTTON ---- #
 st.markdown("<br>", unsafe_allow_html=True)
@@ -1196,7 +1159,24 @@ if st.button("⟶  Evaluate Prompt", use_container_width=True):
         st.warning("Please enter your prompt.")
 
     else:
-        result = evaluate_prompt(user_prompt)
+        with st.spinner("Evaluating your prompt with Groq AI..."):
+            raw_result = evaluate_with_genai(
+                user_prompt,
+                selected_scenario,
+                scenario
+            )
+
+        try:
+            cleaned = raw_result.strip()
+            cleaned = re.sub(r"```(?:json)?", "", cleaned)
+            cleaned = re.sub(r"```", "", cleaned)
+            cleaned = cleaned.strip()
+            result = json.loads(cleaned)
+        except Exception as e:
+            st.error("AI returned invalid JSON. Showing raw output.")
+            st.code(raw_result)
+            st.stop()
+
         score = result["total"]
 
         st.divider()
@@ -1231,17 +1211,14 @@ if st.button("⟶  Evaluate Prompt", use_container_width=True):
                     <div class="score-label">Overall Score</div>
                     <div class="score-value">{score}<span style="font-size:24px;color:#9baac0;">/100</span></div>
                     <div style="margin-top:10px;">
-                        <span style="background:{badge_bg};color:{badge_color};font-size:12px;font-weight:600;padding:5px 14px;border-radius:20px;letter-spacing:0.3px;">{badge_label}</span>
+                        <span style="background:{badge_bg};color:{badge_color};font-size:12px;font-weight:600;padding:5px 14px;border-radius:20px;">
+                            {badge_label}
+                        </span>
                     </div>
                 </div>
                 <div style="flex:1;">
                     <div style="height:10px;background:#e2e8f2;border-radius:10px;overflow:hidden;">
-                        <div style="width:{score}%;height:100%;background:linear-gradient(90deg,#0B3D91,#1976D2);border-radius:10px;transition:width 1s ease;"></div>
-                    </div>
-                    <div style="display:flex;justify-content:space-between;margin-top:6px;">
-                        <span style="font-size:11px;color:#9baac0;">0</span>
-                        <span style="font-size:11px;color:#9baac0;">50</span>
-                        <span style="font-size:11px;color:#9baac0;">100</span>
+                        <div style="width:{score}%;height:100%;background:linear-gradient(90deg,#0B3D91,#1976D2);border-radius:10px;"></div>
                     </div>
                 </div>
             </div>
@@ -1399,12 +1376,13 @@ if st.button("⟶  Evaluate Prompt", use_container_width=True):
             if result["format"] < 20:
                 rca_table.append(["Undefined Output Format", "Structured output not requested", "Response may become unorganized", "Specify table, bullets, or output columns"])
 
-            st.table({
-                "Gap": [row[0] for row in rca_table],
-                "Root Cause": [row[1] for row in rca_table],
-                "Impact": [row[2] for row in rca_table],
-                "Improvement": [row[3] for row in rca_table]
-            })
+            if rca_table:
+                st.table({
+                    "Gap": [row[0] for row in rca_table],
+                    "Root Cause": [row[1] for row in rca_table],
+                    "Impact": [row[2] for row in rca_table],
+                    "Improvement": [row[3] for row in rca_table]
+                })
 
         # --- EXPERT PROMPT --- #
         st.divider()

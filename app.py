@@ -15,14 +15,12 @@ if not api_key:
 
 client = Groq(api_key=api_key)
 
-# ----- PAGE CONFIG --- #
 st.set_page_config(
     page_title="Learning and Devlopment",
     page_icon="📘",
     layout="wide"
 )
 
-# ---- CUSTOM CSS --- #
 st.markdown("""
 <style>
 
@@ -137,17 +135,9 @@ section[data-testid="stSidebar"] {
     transform: translateY(-2px);
 }
 
-.framework-pill:hover .pill-letter {
-    color: #ffffff;
-}
-
-.framework-pill:hover .pill-word {
-    color: rgba(255,255,255,0.85);
-}
-
-.framework-pill:hover .pill-desc {
-    color: rgba(255,255,255,0.65);
-}
+.framework-pill:hover .pill-letter { color: #ffffff; }
+.framework-pill:hover .pill-word { color: rgba(255,255,255,0.85); }
+.framework-pill:hover .pill-desc { color: rgba(255,255,255,0.65); }
 
 .pill-letter {
     font-family: 'DM Serif Display', serif;
@@ -175,7 +165,7 @@ section[data-testid="stSidebar"] {
     display: flex;
     align-items: center;
     gap: 10px;
-    margin: 28px 0 14px 0;
+    margin: 20px 0 10px 0;
 }
 
 .section-badge {
@@ -198,11 +188,11 @@ section[data-testid="stSidebar"] {
 .problem-box {
     background: #ffffff;
     border-radius: 14px;
-    padding: 24px 28px;
+    padding: 18px 22px;
     border: 1px solid #e2e8f2;
     border-left: 4px solid #0B3D91;
     box-shadow: 0 2px 12px rgba(11,61,145,0.05);
-    font-size: 15.5px;
+    font-size: 14.5px;
     line-height: 1.7;
     color: #2d3a52;
     margin-bottom: 10px;
@@ -215,77 +205,65 @@ section[data-testid="stSidebar"] {
     box-shadow: 0 2px 10px rgba(11,61,145,0.05);
 }
 
-[data-testid="stTable"] table {
-    background: #ffffff;
-}
+[data-testid="stTable"] table { background: #ffffff; }
 
 [data-testid="stTable"] thead tr th {
     background: #0B3D91 !important;
     color: #ffffff !important;
     font-size: 13px !important;
     font-weight: 600 !important;
-    padding: 12px 18px !important;
+    padding: 10px 14px !important;
     letter-spacing: 0.4px;
     border: none !important;
 }
 
 [data-testid="stTable"] tbody tr td {
-    padding: 11px 18px !important;
-    font-size: 13.5px;
+    padding: 9px 14px !important;
+    font-size: 13px;
     border-bottom: 1px solid #f0f4fa !important;
     color: #2d3a52;
 }
 
-[data-testid="stTable"] tbody tr:hover td {
-    background: #f7f9ff !important;
-}
-
-[data-testid="stTable"] tbody tr:last-child td {
-    border-bottom: none !important;
-}
-
-[data-testid="stTable"] thead tr th:last-child {
-    text-align: right !important;
-}
+[data-testid="stTable"] tbody tr:hover td { background: #f7f9ff !important; }
+[data-testid="stTable"] tbody tr:last-child td { border-bottom: none !important; }
+[data-testid="stTable"] thead tr th:last-child { text-align: right !important; }
 
 .check-item {
     display: flex;
     align-items: flex-start;
     gap: 10px;
-    padding: 9px 0;
-    font-size: 14.5px;
+    padding: 7px 0;
+    font-size: 13.5px;
     color: #2d3a52;
     border-bottom: 1px solid #f0f4fa;
 }
 
-.check-item:last-child {
-    border-bottom: none;
-}
+.check-item:last-child { border-bottom: none; }
 
 .check-icon {
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
     background: #e8f0fe;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     color: #0B3D91;
-    font-size: 11px;
+    font-size: 10px;
     flex-shrink: 0;
     margin-top: 1px;
 }
 
 .bullet-icon {
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
     background: #fff0e6;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     color: #d96a00;
-    font-size: 11px;
+    font-size: 10px;
     flex-shrink: 0;
     margin-top: 1px;
 }
@@ -293,7 +271,7 @@ section[data-testid="stSidebar"] {
 .checklist-card {
     background: #ffffff;
     border-radius: 14px;
-    padding: 18px 22px;
+    padding: 14px 18px;
     border: 1px solid #e2e8f2;
     box-shadow: 0 2px 10px rgba(11,61,145,0.04);
     margin-bottom: 10px;
@@ -302,9 +280,9 @@ section[data-testid="stSidebar"] {
 .task-box {
     background: linear-gradient(135deg, #f0f5ff, #e8f0fe);
     border-radius: 14px;
-    padding: 22px 26px;
+    padding: 16px 20px;
     border: 1.5px dashed #93b4f0;
-    font-size: 15px;
+    font-size: 14px;
     color: #1a3a6b;
     font-weight: 500;
     line-height: 1.6;
@@ -335,13 +313,13 @@ section[data-testid="stSidebar"] {
 
 textarea {
     border-radius: 14px !important;
-    font-size: 14.5px !important;
+    font-size: 14px !important;
     border: 1.5px solid #c7d9f8 !important;
     background: #f7f9ff !important;
     font-family: 'Inter', sans-serif !important;
     line-height: 1.7 !important;
     box-shadow: 0 2px 8px rgba(11,61,145,0.04) !important;
-    padding: 16px !important;
+    padding: 14px !important;
     color: #1a1a2e !important;
 }
 
@@ -355,9 +333,7 @@ textarea:focus {
     background: #ffffff !important;
 }
 
-[data-baseweb="base-input"] {
-    background: #ffffff !important;
-}
+[data-baseweb="base-input"] { background: #ffffff !important; }
 
 .stButton > button {
     background: linear-gradient(135deg, #0B3D91, #1565C0);
@@ -378,9 +354,7 @@ textarea:focus {
     box-shadow: 0 6px 20px rgba(11,61,145,0.38);
 }
 
-.stButton > button:active {
-    transform: translateY(0px);
-}
+.stButton > button:active { transform: translateY(0px); }
 
 [data-testid="metric-container"] {
     background: #ffffff;
@@ -483,7 +457,7 @@ textarea:focus {
 hr {
     border: none !important;
     border-top: 1.5px solid #e8f0fe !important;
-    margin: 28px 0 !important;
+    margin: 20px 0 !important;
 }
 
 .select-label {
@@ -506,50 +480,38 @@ hr {
     border-top: 1px solid #e2e8f2;
 }
 
+.left-panel {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 20px 24px;
+    border: 1px solid #e2e8f2;
+    box-shadow: 0 2px 12px rgba(11,61,145,0.06);
+    height: fit-content;
+}
+
+.right-panel {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 20px 24px;
+    border: 1px solid #e2e8f2;
+    box-shadow: 0 2px 12px rgba(11,61,145,0.06);
+}
+
 [data-testid="stTextArea"] textarea {
     color: #1a1a2e !important;
     background: #ffffff !important;
 }
 
-[data-testid="stTextArea"] textarea::placeholder {
-    color: #6b7fa3 !important;
-}
-
-[data-baseweb="select"] * {
-    color: #1a1a2e !important;
-}
-
-[data-testid="stSelectbox"] * {
-    color: #1a1a2e !important;
-}
-
-[data-testid="stAlert"] {
-    color: #1a1a2e !important;
-}
-
-[data-testid="stAlert"] p {
-    color: #1a1a2e !important;
-}
-
-.stWarning, .stSuccess, .stError, .stInfo {
-    color: #1a1a2e !important;
-}
-
-[data-testid="stMarkdownContainer"] p {
-    color: #1a1a2e !important;
-}
-
-.check-item span {
-    color: #2d3a52 !important;
-}
-
-.problem-box {
-    color: #2d3a52 !important;
-}
-
-.task-box {
-    color: #1a3a6b !important;
-}
+[data-testid="stTextArea"] textarea::placeholder { color: #6b7fa3 !important; }
+[data-baseweb="select"] * { color: #1a1a2e !important; }
+[data-testid="stSelectbox"] * { color: #1a1a2e !important; }
+[data-testid="stAlert"] { color: #1a1a2e !important; }
+[data-testid="stAlert"] p { color: #1a1a2e !important; }
+.stWarning, .stSuccess, .stError, .stInfo { color: #1a1a2e !important; }
+[data-testid="stMarkdownContainer"] p { color: #1a1a2e !important; }
+.check-item span { color: #2d3a52 !important; }
+.problem-box { color: #2d3a52 !important; }
+.task-box { color: #1a3a6b !important; }
 
 </style>
 """, unsafe_allow_html=True)
@@ -980,8 +942,170 @@ scenarios = {
 
 }
 
+expert_prompts = {
+    "Scenario 1 — Safety Incident Increase in Night Shift": """Role:
+Act as an Industrial Safety Consultant.
 
-# --- SELECT SCENARIO ---#
+Context:
+Near-miss safety incidents increased by 22% during night shifts in the Raw Materials division over the last 45 days. Available data includes shift timing, fatigue records, overtime hours, supervisor roster, and safety audit findings.
+
+Task:
+Analyze possible causes behind the increase in incidents, identify high-risk operational patterns, and recommend preventive actions to improve safety compliance.
+
+Constraints:
+Focus on practical shopfloor interventions with low implementation cost and minimum operational disruption.
+
+Format:
+Provide output in:
+Observation | Root Cause | Risk Impact | Preventive Action | Priority""",
+
+    "Scenario 2 — Low Adoption of Digital Inspection App": """Role:
+Act as a Digital Transformation Consultant.
+
+Context:
+Maintenance employees are not regularly using digital inspection applications despite completing training programs.
+
+Task:
+Identify adoption barriers and recommend strategies to improve digital tool usage and workforce engagement.
+
+Constraints:
+Recommendations should suit industrial workforce environments with varying digital literacy levels.
+
+Format:
+Provide output in:
+Problem | Root Cause | Recommendation | Expected Outcome""",
+
+    "Scenario 3 — Decline in Training Engagement": """Role:
+Act as a Learning Engagement Specialist.
+
+Context:
+Mandatory compliance training completion dropped significantly among contract workforce employees.
+
+Task:
+Analyze reasons for declining completion rates and recommend practical engagement interventions.
+
+Constraints:
+Recommendations should be multilingual, operationally practical, and workforce-friendly.
+
+Format:
+Provide output in:
+Issue | Analysis | Suggested Action | Expected Improvement""",
+
+    "Scenario 4 — High Downtime in Conveyor System": """Role:
+Act as a Reliability and Maintenance Expert.
+
+Context:
+A critical conveyor system experienced repeated downtime during peak operational hours.
+
+Task:
+Identify probable causes of equipment downtime and recommend preventive maintenance improvements.
+
+Constraints:
+Recommendations should minimize shutdown time and optimize maintenance cost.
+
+Format:
+Provide output in:
+Observation | Root Cause | Recommendation | Business Impact""",
+
+    "Scenario 5 — Employee Engagement Score Drop": """Role:
+Act as an Employee Engagement Consultant.
+
+Context:
+Employee engagement scores reduced significantly after shift restructuring.
+
+Task:
+Analyze possible reasons for declining engagement and suggest corrective interventions.
+
+Constraints:
+Focus on workforce morale, communication, and practical implementation.
+
+Format:
+Provide output in:
+Issue | Possible Cause | Recommendation | Expected Impact""",
+
+    "Scenario 6 — High Attrition in Shared Services": """Role:
+Act as an HR Analytics Consultant.
+
+Context:
+Young employees are leaving Shared Services within 18 months, citing growth and career clarity concerns.
+
+Task:
+Identify root causes of early attrition and recommend scalable retention strategies for Gen Z workforce.
+
+Constraints:
+Avoid unrealistic compensation assumptions. Focus on scalable, low-cost interventions.
+
+Format:
+Provide output in:
+Attrition Driver | Root Cause | Retention Strategy | Expected Impact""",
+
+    "Scenario 7 — Overtime Leading to Absenteeism": """Role:
+Act as a Workforce Analytics Specialist.
+
+Context:
+Employees with consistently high overtime hours are showing increased absenteeism after 3 months.
+
+Task:
+Identify patterns between overtime and absenteeism, and recommend workforce optimization strategies.
+
+Constraints:
+Maintain productivity levels. No manpower addition. Focus on wellbeing.
+
+Format:
+Provide output in:
+Pattern | Root Cause | Recommendation | Expected Outcome""",
+
+    "Scenario 8 — Slow Recruitment Process": """Role:
+Act as a Talent Acquisition Process Consultant.
+
+Context:
+The hiring cycle for maintenance engineers has increased from 35 to 62 days due to multiple bottlenecks.
+
+Task:
+Identify bottlenecks in the recruitment process and recommend improvements to reduce hiring turnaround time.
+
+Constraints:
+Maintain hiring quality. No budget increase. Focus on process optimization only.
+
+Format:
+Provide output in:
+Stage | Bottleneck | Root Cause | Recommendation | Priority""",
+
+    "Scenario 9 — Poor Knowledge Retention After Training": """Role:
+Act as a Learning Effectiveness Consultant.
+
+Context:
+Operators are forgetting safety procedures within 30 days of completing training.
+
+Task:
+Analyze knowledge retention gaps and recommend reinforcement strategies to improve safety recall.
+
+Constraints:
+No long classroom-based methods. Shopfloor-suitable and practical reinforcement only.
+
+Format:
+Provide output in:
+Retention Gap | Root Cause | Reinforcement Strategy | Measurement Indicator""",
+
+    "Scenario 10 — Low Productivity in C-Shift": """Role:
+Act as an Operations Productivity Analyst.
+
+Context:
+C-shift consistently shows 14% lower productivity compared to A-shift across the same production line.
+
+Task:
+Analyze the productivity gap, identify root causes, and recommend operational improvements.
+
+Constraints:
+Operational improvements only. No capital expenditure increase. Maintain shift continuity.
+
+Format:
+Provide output in:
+Productivity Factor | Gap Observed | Root Cause | Recommended Action | Priority"""
+}
+
+
+# ---------------- SCENARIO SELECTOR ---------------- #
 st.markdown('<div class="select-label">Choose Business Scenario</div>', unsafe_allow_html=True)
 selected_scenario = st.selectbox(
     "",
@@ -993,95 +1117,93 @@ scenario = scenarios[selected_scenario]
 
 st.markdown("<br>", unsafe_allow_html=True)
 
-# -------- BUSINESS INSIGHT ------- #
-st.markdown("""
-<div class="section-header">
-    <span class="section-badge">01</span>
-    <span class="section-title">Business Insight</span>
-</div>
-""", unsafe_allow_html=True)
+# ---------------- EXPANDABLE SCENARIO DETAILS ---------------- #
 
-st.markdown(f'<div class="problem-box">{scenario["problem"]}</div>', unsafe_allow_html=True)
+with st.expander("📘 View Business Scenario Details", expanded=False):
 
-# ------ RAW DATA ----- #
-st.markdown("""
-<div class="section-header">
-    <span class="section-badge">02</span>
-    <span class="section-title">Available Data</span>
-</div>
-""", unsafe_allow_html=True)
+    st.markdown('<div class="left-panel">', unsafe_allow_html=True)
 
-st.table({
-    "Dataset": list(scenario["data"].keys()),
-    "Details": list(scenario["data"].values())
-})
+    st.markdown("""
+    <div class="section-header">
+        <span class="section-badge">01</span>
+        <span class="section-title">Business Insight</span>
+    </div>
+    """, unsafe_allow_html=True)
+    st.markdown(f'<div class="problem-box">{scenario["problem"]}</div>', unsafe_allow_html=True)
 
-# ---- OBJECTIVE ----- #
-st.markdown("""
-<div class="section-header">
-    <span class="section-badge">03</span>
-    <span class="section-title">Objective</span>
-</div>
-""", unsafe_allow_html=True)
+    st.markdown("""
+    <div class="section-header">
+        <span class="section-badge">02</span>
+        <span class="section-title">Available Data</span>
+    </div>
+    """, unsafe_allow_html=True)
+    st.table({
+        "Dataset": list(scenario["data"].keys()),
+        "Details": list(scenario["data"].values())
+    })
 
-items_html = "".join([
-    f'<div class="check-item"><div class="check-icon">✓</div><span>{obj}</span></div>'
-    for obj in scenario["objective"]
-])
-st.markdown(f'<div class="checklist-card">{items_html}</div>', unsafe_allow_html=True)
+    st.markdown("""
+    <div class="section-header">
+        <span class="section-badge">03</span>
+        <span class="section-title">Objective</span>
+    </div>
+    """, unsafe_allow_html=True)
+    items_html = "".join([
+        f'<div class="check-item"><div class="check-icon">✓</div><span>{obj}</span></div>'
+        for obj in scenario["objective"]
+    ])
+    st.markdown(f'<div class="checklist-card">{items_html}</div>', unsafe_allow_html=True)
 
-# ----- CONSTRAINTS ----- #
-st.markdown("""
-<div class="section-header">
-    <span class="section-badge">04</span>
-    <span class="section-title">Constraints</span>
-</div>
-""", unsafe_allow_html=True)
+    st.markdown("""
+    <div class="section-header">
+        <span class="section-badge">04</span>
+        <span class="section-title">Constraints</span>
+    </div>
+    """, unsafe_allow_html=True)
+    items_html = "".join([
+        f'<div class="check-item"><div class="bullet-icon">→</div><span>{item}</span></div>'
+        for item in scenario["constraints"]
+    ])
+    st.markdown(f'<div class="checklist-card">{items_html}</div>', unsafe_allow_html=True)
 
-items_html = "".join([
-    f'<div class="check-item"><div class="bullet-icon">→</div><span>{item}</span></div>'
-    for item in scenario["constraints"]
-])
-st.markdown(f'<div class="checklist-card">{items_html}</div>', unsafe_allow_html=True)
+    st.markdown("""
+    <div class="section-header">
+        <span class="section-badge">05</span>
+        <span class="section-title">Enterprise Prompting Task</span>
+    </div>
+    """, unsafe_allow_html=True)
+    st.markdown(f'<div class="task-box">{scenario["learner_task"]}</div>', unsafe_allow_html=True)
 
-# ------ LEARNER TASK ----- #
-st.markdown("""
-<div class="section-header">
-    <span class="section-badge">05</span>
-    <span class="section-title">Enterprise Prompting Task</span>
-</div>
-""", unsafe_allow_html=True)
+    st.markdown("""
+    <div class="section-header">
+        <span class="section-badge">06</span>
+        <span class="section-title">What Good Looks Like</span>
+    </div>
+    """, unsafe_allow_html=True)
+    items_html = "".join([
+        f'<div class="check-item"><div class="check-icon">✓</div><span>{item}</span></div>'
+        for item in scenario["good_looks"]
+    ])
+    st.markdown(f'<div class="checklist-card">{items_html}</div>', unsafe_allow_html=True)
 
-st.markdown(f'<div class="task-box">{scenario["learner_task"]}</div>', unsafe_allow_html=True)
+    st.markdown("""
+    <div class="section-header">
+        <span class="section-badge">07</span>
+        <span class="section-title">Evaluation Scorecard</span>
+    </div>
+    """, unsafe_allow_html=True)
+    st.table({
+        "Criteria": list(scenario["scorecard"].keys()),
+        "Marks": list(scenario["scorecard"].values())
+    })
 
-# ---- WHAT GOOD LOOKS LIKE ------- #
-st.markdown("""
-<div class="section-header">
-    <span class="section-badge">06</span>
-    <span class="section-title">What Good Looks Like</span>
-</div>
-""", unsafe_allow_html=True)
+    st.markdown('</div>', unsafe_allow_html=True)
 
-items_html = "".join([
-    f'<div class="check-item"><div class="check-icon">✓</div><span>{item}</span></div>'
-    for item in scenario["good_looks"]
-])
-st.markdown(f'<div class="checklist-card">{items_html}</div>', unsafe_allow_html=True)
 
-# ----- EVALUATION SCORECARD --------- #
-st.markdown("""
-<div class="section-header">
-    <span class="section-badge">07</span>
-    <span class="section-title">Evaluation Scorecard</span>
-</div>
-""", unsafe_allow_html=True)
+# ---------------- PROMPT INPUT PANEL ---------------- #
 
-st.table({
-    "Criteria": list(scenario["scorecard"].keys()),
-    "Marks": list(scenario["scorecard"].values())
-})
+st.markdown('<div class="right-panel">', unsafe_allow_html=True)
 
-# ---------------- PROMPT INPUT ---------------- #
 st.markdown("""
 <div class="section-header">
     <span class="section-badge">08</span>
@@ -1091,7 +1213,7 @@ st.markdown("""
 
 user_prompt = st.text_area(
     "Write your structured prompt below",
-    height=280,
+    height=360,
     placeholder="""Example:
 
 Role:
@@ -1110,6 +1232,11 @@ Format:
 ..."""
 )
 
+st.markdown("<br>", unsafe_allow_html=True)
+
+evaluate_clicked = st.button("⟶  Evaluate Prompt", use_container_width=True)
+
+st.markdown('</div>', unsafe_allow_html=True)
 
 # --------- GROQ AI EVALUATION FUNCTION --------- #
 
@@ -1150,10 +1277,9 @@ User Prompt:
     return response.choices[0].message.content
 
 
-# ------- SUBMIT BUTTON ---- #
-st.markdown("<br>", unsafe_allow_html=True)
+# ------- EVALUATION RESULTS BELOW BOTH COLUMNS ------- #
 
-if st.button("⟶  Evaluate Prompt", use_container_width=True):
+if evaluate_clicked:
 
     if user_prompt.strip() == "":
         st.warning("Please enter your prompt.")
@@ -1181,7 +1307,6 @@ if st.button("⟶  Evaluate Prompt", use_container_width=True):
 
         st.divider()
 
-        # --------- SCORE DASHBOARD ----- #
         st.markdown("""
         <div class="section-header">
             <span class="section-badge" style="background:#1565C0;">◈</span>
@@ -1224,7 +1349,6 @@ if st.button("⟶  Evaluate Prompt", use_container_width=True):
             </div>
             """, unsafe_allow_html=True)
 
-        # ------- COMPONENT BREAKDOWN ------- #
         st.markdown("""
         <div class="section-header" style="margin-top:24px;">
             <span class="section-badge" style="background:#1565C0;">◈</span>
@@ -1244,7 +1368,6 @@ if st.button("⟶  Evaluate Prompt", use_container_width=True):
         with col5:
             st.metric("Format", result["format"])
 
-        # ---BUSINESS READINESS ---- #
         st.markdown("""
         <div class="section-header" style="margin-top:24px;">
             <span class="section-badge" style="background:#1565C0;">◈</span>
@@ -1269,7 +1392,6 @@ if st.button("⟶  Evaluate Prompt", use_container_width=True):
             else:
                 st.error("Structured Output")
 
-        # ---- EVALUATION FEEDBACK --- #
         st.markdown("""
         <div class="section-header" style="margin-top:24px;">
             <span class="section-badge" style="background:#1565C0;">◈</span>
@@ -1320,7 +1442,6 @@ if st.button("⟶  Evaluate Prompt", use_container_width=True):
             else:
                 st.success("No major improvement areas identified.")
 
-        # --- PROMPT CLASSIFICATION -------- #
         st.markdown("""
         <div class="section-header" style="margin-top:24px;">
             <span class="section-badge" style="background:#1565C0;">◈</span>
@@ -1337,7 +1458,6 @@ if st.button("⟶  Evaluate Prompt", use_container_width=True):
         else:
             st.error("Foundational Prompt Structure")
 
-        # ------- PERFORMANCE MESSAGE ------- #
         st.markdown("""
         <div class="section-header" style="margin-top:24px;">
             <span class="section-badge" style="background:#1565C0;">◈</span>
@@ -1352,8 +1472,8 @@ if st.button("⟶  Evaluate Prompt", use_container_width=True):
         else:
             st.error("The prompt requires improvement in structure, clarity, and business direction.")
 
-        # ------ RCA GAP ANALYSIS ---- #
         st.divider()
+
         st.markdown("""
         <div class="section-header">
             <span class="section-badge" style="background:#1565C0;">◈</span>
@@ -1384,8 +1504,8 @@ if st.button("⟶  Evaluate Prompt", use_container_width=True):
                     "Improvement": [row[3] for row in rca_table]
                 })
 
-        # --- EXPERT PROMPT --- #
         st.divider()
+
         st.markdown("""
         <div class="section-header">
             <span class="section-badge" style="background:#1565C0;">◈</span>
@@ -1393,172 +1513,10 @@ if st.button("⟶  Evaluate Prompt", use_container_width=True):
         </div>
         """, unsafe_allow_html=True)
 
-        expert_prompts = {
-            "Scenario 1 — Safety Incident Increase in Night Shift": """Role:
-Act as an Industrial Safety Consultant.
-
-Context:
-Near-miss safety incidents increased by 22% during night shifts in the Raw Materials division over the last 45 days. Available data includes shift timing, fatigue records, overtime hours, supervisor roster, and safety audit findings.
-
-Task:
-Analyze possible causes behind the increase in incidents, identify high-risk operational patterns, and recommend preventive actions to improve safety compliance.
-
-Constraints:
-Focus on practical shopfloor interventions with low implementation cost and minimum operational disruption.
-
-Format:
-Provide output in:
-Observation | Root Cause | Risk Impact | Preventive Action | Priority""",
-
-            "Scenario 2 — Low Adoption of Digital Inspection App": """Role:
-Act as a Digital Transformation Consultant.
-
-Context:
-Maintenance employees are not regularly using digital inspection applications despite completing training programs.
-
-Task:
-Identify adoption barriers and recommend strategies to improve digital tool usage and workforce engagement.
-
-Constraints:
-Recommendations should suit industrial workforce environments with varying digital literacy levels.
-
-Format:
-Provide output in:
-Problem | Root Cause | Recommendation | Expected Outcome""",
-
-            "Scenario 3 — Decline in Training Engagement": """Role:
-Act as a Learning Engagement Specialist.
-
-Context:
-Mandatory compliance training completion dropped significantly among contract workforce employees.
-
-Task:
-Analyze reasons for declining completion rates and recommend practical engagement interventions.
-
-Constraints:
-Recommendations should be multilingual, operationally practical, and workforce-friendly.
-
-Format:
-Provide output in:
-Issue | Analysis | Suggested Action | Expected Improvement""",
-
-            "Scenario 4 — High Downtime in Conveyor System": """Role:
-Act as a Reliability and Maintenance Expert.
-
-Context:
-A critical conveyor system experienced repeated downtime during peak operational hours.
-
-Task:
-Identify probable causes of equipment downtime and recommend preventive maintenance improvements.
-
-Constraints:
-Recommendations should minimize shutdown time and optimize maintenance cost.
-
-Format:
-Provide output in:
-Observation | Root Cause | Recommendation | Business Impact""",
-
-            "Scenario 5 — Employee Engagement Score Drop": """Role:
-Act as an Employee Engagement Consultant.
-
-Context:
-Employee engagement scores reduced significantly after shift restructuring.
-
-Task:
-Analyze possible reasons for declining engagement and suggest corrective interventions.
-
-Constraints:
-Focus on workforce morale, communication, and practical implementation.
-
-Format:
-Provide output in:
-Issue | Possible Cause | Recommendation | Expected Impact""",
-
-            "Scenario 6 — High Attrition in Shared Services": """Role:
-Act as an HR Analytics Consultant.
-
-Context:
-Young employees are leaving Shared Services within 18 months, citing growth and career clarity concerns.
-
-Task:
-Identify root causes of early attrition and recommend scalable retention strategies for Gen Z workforce.
-
-Constraints:
-Avoid unrealistic compensation assumptions. Focus on scalable, low-cost interventions.
-
-Format:
-Provide output in:
-Attrition Driver | Root Cause | Retention Strategy | Expected Impact""",
-
-            "Scenario 7 — Overtime Leading to Absenteeism": """Role:
-Act as a Workforce Analytics Specialist.
-
-Context:
-Employees with consistently high overtime hours are showing increased absenteeism after 3 months.
-
-Task:
-Identify patterns between overtime and absenteeism, and recommend workforce optimization strategies.
-
-Constraints:
-Maintain productivity levels. No manpower addition. Focus on wellbeing.
-
-Format:
-Provide output in:
-Pattern | Root Cause | Recommendation | Expected Outcome""",
-
-            "Scenario 8 — Slow Recruitment Process": """Role:
-Act as a Talent Acquisition Process Consultant.
-
-Context:
-The hiring cycle for maintenance engineers has increased from 35 to 62 days due to multiple bottlenecks.
-
-Task:
-Identify bottlenecks in the recruitment process and recommend improvements to reduce hiring turnaround time.
-
-Constraints:
-Maintain hiring quality. No budget increase. Focus on process optimization only.
-
-Format:
-Provide output in:
-Stage | Bottleneck | Root Cause | Recommendation | Priority""",
-
-            "Scenario 9 — Poor Knowledge Retention After Training": """Role:
-Act as a Learning Effectiveness Consultant.
-
-Context:
-Operators are forgetting safety procedures within 30 days of completing training.
-
-Task:
-Analyze knowledge retention gaps and recommend reinforcement strategies to improve safety recall.
-
-Constraints:
-No long classroom-based methods. Shopfloor-suitable and practical reinforcement only.
-
-Format:
-Provide output in:
-Retention Gap | Root Cause | Reinforcement Strategy | Measurement Indicator""",
-
-            "Scenario 10 — Low Productivity in C-Shift": """Role:
-Act as an Operations Productivity Analyst.
-
-Context:
-C-shift consistently shows 14% lower productivity compared to A-shift across the same production line.
-
-Task:
-Analyze the productivity gap, identify root causes, and recommend operational improvements.
-
-Constraints:
-Operational improvements only. No capital expenditure increase. Maintain shift continuity.
-
-Format:
-Provide output in:
-Productivity Factor | Gap Observed | Root Cause | Recommended Action | Priority"""
-        }
-
         st.code(expert_prompts[selected_scenario], language="text")
 
-        # ---------------- WHY THIS PROMPT IS BETTER ---------------- #
         st.divider()
+
         st.markdown("""
         <div class="section-header">
             <span class="section-badge" style="background:#1565C0;">◈</span>
@@ -1580,6 +1538,7 @@ Productivity Factor | Gap Observed | Root Cause | Recommended Action | Priority"
         st.markdown(f'<div class="checklist-card">{items_html}</div>', unsafe_allow_html=True)
 
         st.info("Structured prompts create structured business outcomes.")
+
 
 # ---- FOOTER -----  #
 st.markdown("""

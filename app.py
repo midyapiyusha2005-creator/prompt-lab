@@ -453,6 +453,42 @@ textarea:focus {
     border-radius: 12px !important;
     font-size: 14px !important;
 }
+            
+/* FIX EXPANDER BLACK HOVER ISSUE */
+
+details {
+    background: transparent !important;
+}
+
+details summary {
+    background: #f4f7fc !important;
+    color: #1a1a2e !important;
+    border-radius: 12px !important;
+    padding: 12px 16px !important;
+    border: 1px solid #dbe6f7 !important;
+    font-weight: 600 !important;
+}
+
+details summary:hover {
+    background: #eef3fb !important;
+    color: #0B3D91 !important;
+}
+
+details[open] summary {
+    background: #eef3fb !important;
+    color: #0B3D91 !important;
+}
+
+summary {
+    list-style: none !important;
+}
+
+summary::-webkit-details-marker {
+    display: none;
+}
+
+
+
 
 hr {
     border: none !important;
@@ -490,11 +526,11 @@ hr {
 }
 
 .right-panel {
-    background: #ffffff;
+    background: transparent;
     border-radius: 16px;
-    padding: 20px 24px;
-    border: 1px solid #e2e8f2;
-    box-shadow: 0 2px 12px rgba(11,61,145,0.06);
+    padding: 0px;
+    border: none;
+    box-shadow: none;
 }
 
 [data-testid="stTextArea"] textarea {
@@ -514,6 +550,9 @@ hr {
 .task-box { color: #1a3a6b !important; }
 
 </style>
+
+          
+
 """, unsafe_allow_html=True)
 
 
@@ -561,7 +600,7 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-st.divider()
+
 
 # ---------------- SCENARIOS ---------------- #
 
@@ -583,13 +622,8 @@ scenarios = {
         "Preventive recommendations",
         "Priority action plan"
     ],
-    "constraints": [
-        "Use only provided datasets",
-        "Avoid assumptions",
-        "Focus on Raw Materials division",
-        "Low-cost practical solutions"
-    ],
-    "learner_task": "Create enterprise AI prompt using RCTCF framework",
+    
+    
     "good_looks": [
         "Clear role definition",
         "Uses given data only",
@@ -621,13 +655,8 @@ scenarios = {
         "Engagement improvement strategies",
         "Digital adoption roadmap"
     ],
-    "constraints": [
-        "Use only available datasets",
-        "Avoid tech assumptions",
-        "Industrial workforce suitability",
-        "Practical implementation focus"
-    ],
-    "learner_task": "Create AI prompt to identify barriers and improve adoption.",
+     
+    
     "good_looks": [
         "Clear problem definition",
         "Uses given data",
@@ -659,12 +688,6 @@ scenarios = {
         "Engagement improvement",
         "Completion improvement plan"
     ],
-    "constraints": [
-        "Multilingual support required",
-        "Avoid classroom-heavy methods",
-        "Practical operations focus"
-    ],
-    "learner_task": "Convert business problem into structured AI prompt.",
     "good_looks": [
         "Workforce-aware design",
         "Clear constraints",
@@ -696,12 +719,7 @@ scenarios = {
         "Preventive maintenance strategy",
         "Downtime reduction"
     ],
-    "constraints": [
-        "Minimize shutdown time",
-        "Avoid high-cost solutions",
-        "Ensure operational continuity"
-    ],
-    "learner_task": "Create structured AI prompt for maintenance analysis.",
+    
     "good_looks": [
         "Maintenance insight",
         "Data-driven reasoning",
@@ -733,12 +751,7 @@ scenarios = {
         "Risk prediction",
         "Intervention plan"
     ],
-    "constraints": [
-        "Only affected department",
-        "No compensation-heavy solutions",
-        "Focus on morale"
-    ],
-    "learner_task": "Create AI prompt for workforce engagement analysis.",
+    
     "good_looks": [
         "Clear workforce insight",
         "Actionable output",
@@ -770,12 +783,7 @@ scenarios = {
         "Retention strategy",
         "Early warning signals"
     ],
-    "constraints": [
-        "Focus on Gen Z",
-        "No unrealistic compensation assumptions",
-        "Scalable solutions"
-    ],
-    "learner_task": "Design HR analytics AI prompt.",
+    
     "good_looks": [
         "Behavioral insight",
         "Retention logic",
@@ -807,12 +815,7 @@ scenarios = {
         "Workforce optimization",
         "Preventive planning"
     ],
-    "constraints": [
-        "Maintain productivity",
-        "No manpower increase",
-        "Focus on wellbeing"
-    ],
-    "learner_task": "Build workforce analytics AI prompt.",
+    
     "good_looks": [
         "Fatigue awareness",
         "Operational balance",
@@ -844,12 +847,7 @@ scenarios = {
         "Process improvement",
         "Faster hiring"
     ],
-    "constraints": [
-        "Maintain hiring quality",
-        "No cost increase",
-        "Process optimization only"
-    ],
-    "learner_task": "Create recruitment analysis AI prompt.",
+    
     "good_looks": [
         "Clear bottleneck focus",
         "Hiring insight",
@@ -881,12 +879,7 @@ scenarios = {
         "Reinforcement strategy",
         "Effectiveness measurement"
     ],
-    "constraints": [
-        "No long classroom training",
-        "Practical reinforcement only",
-        "Shopfloor suitability"
-    ],
-    "learner_task": "Create training effectiveness AI prompt.",
+    
     "good_looks": [
         "Learning reinforcement",
         "Practical design",
@@ -918,12 +911,8 @@ scenarios = {
         "Root cause identification",
         "Shift improvement"
     ],
-    "constraints": [
-        "Operational improvements only",
-        "No capex increase",
-        "Maintain continuity"
-    ],
-    "learner_task": "Create productivity analysis AI prompt.",
+     
+    
     "good_looks": [
         "Operational insight",
         "Shift analysis",
@@ -952,9 +941,6 @@ Near-miss safety incidents increased by 22% during night shifts in the Raw Mater
 Task:
 Analyze possible causes behind the increase in incidents, identify high-risk operational patterns, and recommend preventive actions to improve safety compliance.
 
-Constraints:
-Focus on practical shopfloor interventions with low implementation cost and minimum operational disruption.
-
 Format:
 Provide output in:
 Observation | Root Cause | Risk Impact | Preventive Action | Priority""",
@@ -967,9 +953,6 @@ Maintenance employees are not regularly using digital inspection applications de
 
 Task:
 Identify adoption barriers and recommend strategies to improve digital tool usage and workforce engagement.
-
-Constraints:
-Recommendations should suit industrial workforce environments with varying digital literacy levels.
 
 Format:
 Provide output in:
@@ -984,8 +967,6 @@ Mandatory compliance training completion dropped significantly among contract wo
 Task:
 Analyze reasons for declining completion rates and recommend practical engagement interventions.
 
-Constraints:
-Recommendations should be multilingual, operationally practical, and workforce-friendly.
 
 Format:
 Provide output in:
@@ -1000,8 +981,6 @@ A critical conveyor system experienced repeated downtime during peak operational
 Task:
 Identify probable causes of equipment downtime and recommend preventive maintenance improvements.
 
-Constraints:
-Recommendations should minimize shutdown time and optimize maintenance cost.
 
 Format:
 Provide output in:
@@ -1016,8 +995,6 @@ Employee engagement scores reduced significantly after shift restructuring.
 Task:
 Analyze possible reasons for declining engagement and suggest corrective interventions.
 
-Constraints:
-Focus on workforce morale, communication, and practical implementation.
 
 Format:
 Provide output in:
@@ -1032,9 +1009,6 @@ Young employees are leaving Shared Services within 18 months, citing growth and 
 Task:
 Identify root causes of early attrition and recommend scalable retention strategies for Gen Z workforce.
 
-Constraints:
-Avoid unrealistic compensation assumptions. Focus on scalable, low-cost interventions.
-
 Format:
 Provide output in:
 Attrition Driver | Root Cause | Retention Strategy | Expected Impact""",
@@ -1048,8 +1022,6 @@ Employees with consistently high overtime hours are showing increased absenteeis
 Task:
 Identify patterns between overtime and absenteeism, and recommend workforce optimization strategies.
 
-Constraints:
-Maintain productivity levels. No manpower addition. Focus on wellbeing.
 
 Format:
 Provide output in:
@@ -1064,8 +1036,7 @@ The hiring cycle for maintenance engineers has increased from 35 to 62 days due 
 Task:
 Identify bottlenecks in the recruitment process and recommend improvements to reduce hiring turnaround time.
 
-Constraints:
-Maintain hiring quality. No budget increase. Focus on process optimization only.
+
 
 Format:
 Provide output in:
@@ -1080,9 +1051,6 @@ Operators are forgetting safety procedures within 30 days of completing training
 Task:
 Analyze knowledge retention gaps and recommend reinforcement strategies to improve safety recall.
 
-Constraints:
-No long classroom-based methods. Shopfloor-suitable and practical reinforcement only.
-
 Format:
 Provide output in:
 Retention Gap | Root Cause | Reinforcement Strategy | Measurement Indicator""",
@@ -1096,8 +1064,6 @@ C-shift consistently shows 14% lower productivity compared to A-shift across the
 Task:
 Analyze the productivity gap, identify root causes, and recommend operational improvements.
 
-Constraints:
-Operational improvements only. No capital expenditure increase. Maintain shift continuity.
 
 Format:
 Provide output in:
@@ -1117,87 +1083,50 @@ scenario = scenarios[selected_scenario]
 
 st.markdown("<br>", unsafe_allow_html=True)
 
-# ---------------- EXPANDABLE SCENARIO DETAILS ---------------- #
 
-with st.expander("📘 View Business Scenario Details", expanded=False):
 
-    st.markdown('<div class="left-panel">', unsafe_allow_html=True)
+# ---------------- BUSINESS SUMMARY ---------------- #
 
-    st.markdown("""
-    <div class="section-header">
-        <span class="section-badge">01</span>
-        <span class="section-title">Business Insight</span>
+st.markdown("""
+<div class="section-header">
+    <span class="section-badge">Scenario Overview</span>
+    <span class="section-title">Business Problem & Evaluation Criteria</span>
+</div>
+""", unsafe_allow_html=True)
+top_col1, top_col2 = st.columns([2,1])
+
+with top_col1:
+
+    st.markdown(f"""
+    <div class="problem-box" style="padding:16px 20px; line-height:1.5;">
+
+    <b>Business Problem</b><br>
+    {scenario["problem"]}
+
+    <br>
+
+    <b>Available Data</b><br>
+    • {"<br>• ".join(scenario["data"].keys())}
+
+    <br>
+
+    <b>Objectives</b><br>
+    • {"<br>• ".join(scenario["objective"])}
+
     </div>
     """, unsafe_allow_html=True)
-    st.markdown(f'<div class="problem-box">{scenario["problem"]}</div>', unsafe_allow_html=True)
+with top_col2:
 
     st.markdown("""
-    <div class="section-header">
-        <span class="section-badge">02</span>
-        <span class="section-title">Available Data</span>
+    <div class="section-header" style="margin-top:0;">
+        <span class="section-badge">Evaluation</span>
     </div>
     """, unsafe_allow_html=True)
-    st.table({
-        "Dataset": list(scenario["data"].keys()),
-        "Details": list(scenario["data"].values())
-    })
 
-    st.markdown("""
-    <div class="section-header">
-        <span class="section-badge">03</span>
-        <span class="section-title">Objective</span>
-    </div>
-    """, unsafe_allow_html=True)
-    items_html = "".join([
-        f'<div class="check-item"><div class="check-icon">✓</div><span>{obj}</span></div>'
-        for obj in scenario["objective"]
-    ])
-    st.markdown(f'<div class="checklist-card">{items_html}</div>', unsafe_allow_html=True)
-
-    st.markdown("""
-    <div class="section-header">
-        <span class="section-badge">04</span>
-        <span class="section-title">Constraints</span>
-    </div>
-    """, unsafe_allow_html=True)
-    items_html = "".join([
-        f'<div class="check-item"><div class="bullet-icon">→</div><span>{item}</span></div>'
-        for item in scenario["constraints"]
-    ])
-    st.markdown(f'<div class="checklist-card">{items_html}</div>', unsafe_allow_html=True)
-
-    st.markdown("""
-    <div class="section-header">
-        <span class="section-badge">05</span>
-        <span class="section-title">Enterprise Prompting Task</span>
-    </div>
-    """, unsafe_allow_html=True)
-    st.markdown(f'<div class="task-box">{scenario["learner_task"]}</div>', unsafe_allow_html=True)
-
-    st.markdown("""
-    <div class="section-header">
-        <span class="section-badge">06</span>
-        <span class="section-title">What Good Looks Like</span>
-    </div>
-    """, unsafe_allow_html=True)
-    items_html = "".join([
-        f'<div class="check-item"><div class="check-icon">✓</div><span>{item}</span></div>'
-        for item in scenario["good_looks"]
-    ])
-    st.markdown(f'<div class="checklist-card">{items_html}</div>', unsafe_allow_html=True)
-
-    st.markdown("""
-    <div class="section-header">
-        <span class="section-badge">07</span>
-        <span class="section-title">Evaluation Scorecard</span>
-    </div>
-    """, unsafe_allow_html=True)
     st.table({
         "Criteria": list(scenario["scorecard"].keys()),
         "Marks": list(scenario["scorecard"].values())
     })
-
-    st.markdown('</div>', unsafe_allow_html=True)
 
 
 # ---------------- PROMPT INPUT PANEL ---------------- #
@@ -1206,7 +1135,7 @@ st.markdown('<div class="right-panel">', unsafe_allow_html=True)
 
 st.markdown("""
 <div class="section-header">
-    <span class="section-badge">08</span>
+    <span class="section-badge">02</span>
     <span class="section-title">Create Your Prompt</span>
 </div>
 """, unsafe_allow_html=True)
@@ -1241,10 +1170,11 @@ st.markdown('</div>', unsafe_allow_html=True)
 # --------- GROQ AI EVALUATION FUNCTION --------- #
 
 def evaluate_with_genai(prompt, scenario_name, scenario):
+
     system_prompt = """
 You are an expert prompt evaluator.
-Score using RCTCF: Role, Context, Task, Constraints, Format.
-Each component is scored out of 20. Total is out of 100.
+Score using RCTF: Role, Context, Task, Format.
+Total score is out of 100.
 
 Return ONLY valid JSON with no markdown, no backticks, no explanation:
 {
@@ -1252,11 +1182,11 @@ Return ONLY valid JSON with no markdown, no backticks, no explanation:
   "role": number,
   "context": number,
   "task": number,
-  "constraints": number,
   "format": number,
   "feedback": ["short feedback points"]
 }
 """
+
     user_message = f"""
 Scenario: {scenario_name}
 
@@ -1266,6 +1196,7 @@ Scenario Data:
 User Prompt:
 {prompt}
 """
+
     response = client.chat.completions.create(
         model="llama-3.3-70b-versatile",
         messages=[
@@ -1274,9 +1205,8 @@ User Prompt:
         ],
         temperature=0.2
     )
+
     return response.choices[0].message.content
-
-
 # ------- EVALUATION RESULTS BELOW BOTH COLUMNS ------- #
 
 if evaluate_clicked:
@@ -1286,6 +1216,7 @@ if evaluate_clicked:
 
     else:
         with st.spinner("Evaluating your prompt with Groq AI..."):
+
             raw_result = evaluate_with_genai(
                 user_prompt,
                 selected_scenario,
@@ -1297,7 +1228,9 @@ if evaluate_clicked:
             cleaned = re.sub(r"```(?:json)?", "", cleaned)
             cleaned = re.sub(r"```", "", cleaned)
             cleaned = cleaned.strip()
+
             result = json.loads(cleaned)
+
         except Exception as e:
             st.error("AI returned invalid JSON. Showing raw output.")
             st.code(raw_result)
@@ -1317,14 +1250,17 @@ if evaluate_clicked:
         score_col1, score_col2 = st.columns([3, 1])
 
         with score_col1:
+
             if score >= 80:
                 badge_color = "#1a7a1a"
                 badge_bg = "#e6f7e6"
                 badge_label = "High Quality Prompt"
+
             elif score >= 60:
                 badge_color = "#7a5a00"
                 badge_bg = "#fff8e0"
                 badge_label = "Moderate Quality Prompt"
+
             else:
                 badge_color = "#7a1a1a"
                 badge_bg = "#fde8e8"
@@ -1335,12 +1271,14 @@ if evaluate_clicked:
                 <div>
                     <div class="score-label">Overall Score</div>
                     <div class="score-value">{score}<span style="font-size:24px;color:#9baac0;">/100</span></div>
+
                     <div style="margin-top:10px;">
                         <span style="background:{badge_bg};color:{badge_color};font-size:12px;font-weight:600;padding:5px 14px;border-radius:20px;">
                             {badge_label}
                         </span>
                     </div>
                 </div>
+
                 <div style="flex:1;">
                     <div style="height:10px;background:#e2e8f2;border-radius:10px;overflow:hidden;">
                         <div style="width:{score}%;height:100%;background:linear-gradient(90deg,#0B3D91,#1976D2);border-radius:10px;"></div>
@@ -1352,20 +1290,22 @@ if evaluate_clicked:
         st.markdown("""
         <div class="section-header" style="margin-top:24px;">
             <span class="section-badge" style="background:#1565C0;">◈</span>
-            <span class="section-title">RCTCF Component Evaluation</span>
+            <span class="section-title">RCTF Component Evaluation</span>
         </div>
         """, unsafe_allow_html=True)
 
-        col1, col2, col3, col4, col5 = st.columns(5)
+        col1, col2, col3, col4 = st.columns(4)
+
         with col1:
             st.metric("Role", result["role"])
+
         with col2:
             st.metric("Context", result["context"])
+
         with col3:
             st.metric("Task", result["task"])
+
         with col4:
-            st.metric("Constraints", result["constraints"])
-        with col5:
             st.metric("Format", result["format"])
 
         st.markdown("""
@@ -1376,16 +1316,19 @@ if evaluate_clicked:
         """, unsafe_allow_html=True)
 
         readiness_col1, readiness_col2, readiness_col3 = st.columns(3)
+
         with readiness_col1:
             if result["context"] >= 20:
                 st.success("Business Context")
             else:
                 st.error("Business Context")
+
         with readiness_col2:
             if result["task"] >= 20:
                 st.success("Instruction Clarity")
             else:
                 st.error("Instruction Clarity")
+
         with readiness_col3:
             if result["format"] >= 20:
                 st.success("Structured Output")
@@ -1404,41 +1347,49 @@ if evaluate_clicked:
 
         if result["role"] >= 20:
             strengths.append("Clear expert role definition")
+
         if result["context"] >= 20:
             strengths.append("Strong business context provided")
+
         if result["task"] >= 20:
             strengths.append("Action-oriented task instructions")
-        if result["constraints"] >= 20:
-            strengths.append("Practical operational constraints included")
+
         if result["format"] >= 20:
             strengths.append("Structured output format defined")
 
         if result["role"] < 20:
             improvements.append("Define a more specific business expert role")
+
         if result["context"] < 20:
             improvements.append("Include richer operational/business context")
+
         if result["task"] < 20:
             improvements.append("Use clearer analytical instructions")
-        if result["constraints"] < 20:
-            improvements.append("Add implementation or operational constraints")
+
         if result["format"] < 20:
             improvements.append("Specify structured output format")
 
         feedback_col1, feedback_col2 = st.columns(2)
 
         with feedback_col1:
+
             st.markdown("**Strength Areas**")
+
             if strengths:
                 for item in strengths:
                     st.success(item)
+
             else:
                 st.info("No major strengths identified.")
 
         with feedback_col2:
+
             st.markdown("**Improvement Areas**")
+
             if improvements:
                 for item in improvements:
                     st.warning(item)
+
             else:
                 st.success("No major improvement areas identified.")
 
@@ -1451,10 +1402,13 @@ if evaluate_clicked:
 
         if score >= 90:
             st.success("Enterprise-Ready Prompt Structure")
+
         elif score >= 75:
             st.info("Business-Ready Prompt Structure")
+
         elif score >= 60:
             st.warning("Developing Prompt Structure")
+
         else:
             st.error("Foundational Prompt Structure")
 
@@ -1467,8 +1421,10 @@ if evaluate_clicked:
 
         if score >= 80:
             st.success("The prompt demonstrates strong business understanding and structured instruction design.")
+
         elif score >= 60:
             st.info("The prompt has a good foundation but requires stronger contextual clarity and instruction structuring.")
+
         else:
             st.error("The prompt requires improvement in structure, clarity, and business direction.")
 
@@ -1482,21 +1438,47 @@ if evaluate_clicked:
         """, unsafe_allow_html=True)
 
         if score >= 80:
+
             st.success("Prompt structure is aligned with business analysis requirements.")
+
         else:
+
             rca_table = []
+
             if result["role"] < 20:
-                rca_table.append(["Weak Role Definition", "Expert role not clearly specified", "Generic analytical output", "Define domain-specific expert role"])
+                rca_table.append([
+                    "Weak Role Definition",
+                    "Expert role not clearly specified",
+                    "Generic analytical output",
+                    "Define domain-specific expert role"
+                ])
+
             if result["context"] < 20:
-                rca_table.append(["Limited Business Context", "Insufficient operational details", "Shallow analysis generation", "Include business data and operational conditions"])
+                rca_table.append([
+                    "Limited Business Context",
+                    "Insufficient operational details",
+                    "Shallow analysis generation",
+                    "Include business data and operational conditions"
+                ])
+
             if result["task"] < 20:
-                rca_table.append(["Unclear Task Instructions", "Analysis expectations not defined", "AI may generate vague recommendations", "Use actionable verbs like analyze, identify, recommend"])
-            if result["constraints"] < 20:
-                rca_table.append(["Missing Constraints", "Operational limitations not mentioned", "Recommendations may become impractical", "Add cost, workforce, or operational constraints"])
+                rca_table.append([
+                    "Unclear Task Instructions",
+                    "Analysis expectations not defined",
+                    "AI may generate vague recommendations",
+                    "Use actionable verbs like analyze, identify, recommend"
+                ])
+
             if result["format"] < 20:
-                rca_table.append(["Undefined Output Format", "Structured output not requested", "Response may become unorganized", "Specify table, bullets, or output columns"])
+                rca_table.append([
+                    "Undefined Output Format",
+                    "Structured output not requested",
+                    "Response may become unorganized",
+                    "Specify table, bullets, or output columns"
+                ])
 
             if rca_table:
+
                 st.table({
                     "Gap": [row[0] for row in rca_table],
                     "Root Cause": [row[1] for row in rca_table],
@@ -1530,17 +1512,20 @@ if evaluate_clicked:
                 "Defines a clear business role",
                 "Includes operational context and available data",
                 "Requests actionable analysis",
-                "Applies practical implementation constraints",
                 "Uses structured output format for usability",
                 "Improves response quality and business relevance"
             ]
         ])
-        st.markdown(f'<div class="checklist-card">{items_html}</div>', unsafe_allow_html=True)
 
-        st.info("Structured prompts create structured business outcomes.")
+        st.markdown(
+            f'<div class="checklist-card">{items_html}</div>',
+            unsafe_allow_html=True
+        )
+
+        st.info("Structured prompts improve business clarity, analytical thinking, and AI response quality.")
 
 
-# ---- FOOTER -----  #
+        #----FOOTER-------#
 st.markdown("""
 <div class="footer">
     Digital Capability — Data & AI

@@ -1172,9 +1172,39 @@ st.markdown('</div>', unsafe_allow_html=True)
 def evaluate_with_genai(prompt, scenario_name, scenario):
 
     system_prompt = """
-You are an expert prompt evaluator.
-Score using RCTF: Role, Context, Task, Format.
-Total score is out of 100.
+You are a strict prompt quality evaluator for enterprise business scenarios.
+Score the user's prompt harshly and accurately using these 4 components (25 marks each, total 100):
+
+ROLE (0-25): Did they define a specific business/domain expert role? 
+- 20-25: Clear expert role (e.g. "Act as a Safety Consultant")
+- 10-19: Vague role mentioned
+- 0-9: No role defined at all
+
+CONTEXT (0-25): Did they include the business situation, data references, or operational details?
+- 20-25: Rich context with data points and scenario details
+- 10-19: Partial context, missing key details
+- 0-9: No meaningful context provided
+
+TASK (0-25): Did they give clear analytical instructions using action verbs (analyze, identify, recommend)?
+- 20-25: Clear multi-part task with specific analytical goals
+- 10-19: Vague or single-line task
+- 0-9: No clear task defined
+
+FORMAT (0-25): Did they specify a structured output format (table columns, bullets, headers)?
+- 20-25: Explicit output structure defined
+- 10-19: Partially mentioned
+- 0-9: No format specified
+
+SCORING RULES:
+- A one-liner or casual prompt should score between 25-35 total.
+- A missing component scores between 0-5 only, not 10+.
+- A vague or implied component scores 5-10, not 15+.
+- Score 80+ requires ALL 4 components written clearly and in detail.
+- Score 60-79 means 3 components present but at least one is weak.
+- Score 40-59 means 2 components present with some detail.
+- Score below 40 means only 1 or no components present.
+- DO NOT reward implied or assumed components generously.
+Total = role + context + task + format. Must add up exactly.
 
 Return ONLY valid JSON with no markdown, no backticks, no explanation:
 {
@@ -1186,7 +1216,6 @@ Return ONLY valid JSON with no markdown, no backticks, no explanation:
   "feedback": ["short feedback points"]
 }
 """
-
     user_message = f"""
 Scenario: {scenario_name}
 
@@ -1203,7 +1232,7 @@ User Prompt:
             {"role": "system", "content": system_prompt},
             {"role": "user", "content": user_message}
         ],
-        temperature=0.2
+        temperature=0
     )
 
     return response.choices[0].message.content
@@ -1266,26 +1295,8 @@ if evaluate_clicked:
                 badge_bg = "#fde8e8"
                 badge_label = "Needs Improvement"
 
-            st.markdown(f"""
-            <div class="score-ring-wrap">
-                <div>
-                    <div class="score-label">Overall Score</div>
-                    <div class="score-value">{score}<span style="font-size:24px;color:#9baac0;">/100</span></div>
-
-                    <div style="margin-top:10px;">
-                        <span style="background:{badge_bg};color:{badge_color};font-size:12px;font-weight:600;padding:5px 14px;border-radius:20px;">
-                            {badge_label}
-                        </span>
-                    </div>
-                </div>
-
-                <div style="flex:1;">
-                    <div style="height:10px;background:#e2e8f2;border-radius:10px;overflow:hidden;">
-                        <div style="width:{score}%;height:100%;background:linear-gradient(90deg,#0B3D91,#1976D2);border-radius:10px;"></div>
-                    </div>
-                </div>
-            </div>
-            """, unsafe_allow_html=True)
+            html_score = f'<div class="score-ring-wrap"><div><div class="score-label">Overall Score</div><div class="score-value">{score}<span style="font-size:24px;color:#9baac0;">/100</span></div><div style="margin-top:10px;"><span style="background:{badge_bg};color:{badge_color};font-size:12px;font-weight:600;padding:5px 14px;border-radius:20px;">{badge_label}</span></div></div><div style="flex:1;"><div style="height:10px;background:#e2e8f2;border-radius:10px;overflow:hidden;"><div style="width:{score}%;height:100%;background:linear-gradient(90deg,#0B3D91,#1976D2);border-radius:10px;"></div></div></div></div>'
+            st.markdown(html_score, unsafe_allow_html=True)
 
         st.markdown("""
         <div class="section-header" style="margin-top:24px;">
